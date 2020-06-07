@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Hexo + Github搭建个人博客教程"><link rel="alternate" href="/atom.xml" title="Love your life">
+<link rel="canonical" href="http://yoursite.com/2016/11/23/Hexo + Github搭建个人博客教程/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Hexo + Github搭建个人博客教程 - Love your life</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Love your life</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Love your life</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Hexo + Github搭建个人博客教程
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-11-23
+        </span></div>
+    </header>
+
+    <div class="post-content"><hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>想搭建一个个人博客，但是不舍得花钱买服务器，听说github可以有免费的搭建博客的方法，看到有各种教程关于hexo、jelly和wordpress框架的，我自己选择了hexo，一路走下来感觉有很多坑（当然是对我这样一个连github都还不熟悉的新手来说），于是把走过的坑整理了一下，方便以后再来一次，也方便后来的人</p>
+<p>所以，这样搭建博客好处是什么”)所以，这样搭建博客好处是什么</p>
+<p>关于github：</p>
+<ul>
+<li>github pages是用来托管 github 上静态网页的免费站点，有足够的免费空间（1G），资料自己管理，保存可靠；</li>
+<li>享受github 的便利，上面有很多大牛，眼界会开阔很多；</li>
+<li>可以使用很多现成的博客框架，搭建过程简单快速；</li>
+</ul>
+<p>关于hexo：</p>
+<ul>
+<li>Hexo 是一个简单、快速、强大的静态博客框架,出自台湾大学生 tommy351 之手；</li>
+<li>极速生成静态页面；</li>
+<li>一键部署博客；</li>
+<li>丰富的插件支持；</li>
+<li>支持 Markdown</li>
+</ul>
+<hr>
+<p>那么我们开始吧</p>
+<h1 id="首先我们需要一个github账号"><a href="#首先我们需要一个github账号" class="headerlink" title="首先我们需要一个github账号"></a>首先我们需要一个github账号</h1><p>去<a href="https://github.com/" target="_blank" rel="noopener">github</a>官网注册一个账号</p>
+<p>有了账号，我们新建一个仓库repository，注意，我们的repository命名时需要用自己刚才注册github账号的用户名ID，后面加上“.github.io”（这也意味着一个账号只能搭建一个博客，目前我认为是这样。。。）</p>
+<h1 id="然后我们需要一些配置"><a href="#然后我们需要一些配置" class="headerlink" title="然后我们需要一些配置"></a>然后我们需要一些配置</h1><p>git下载和配置</p>
+<ul>
+<li>需要先下载git插件，并进行配置<a href="https://git-scm.com/download" target="_blank" rel="noopener">git官网</a></li>
+<li>接下来就是git配置内容，这里推荐一片配置git下载安装和配置的博文<a href="http://blog.csdn.net/renfufei/article/details/41647875" target="_blank" rel="noopener">git下载配置博文</a></li>
+</ul>
+<p>hexo配置</p>
+<ul>
+<li><p>我们需要在如下地址下载最新版<a href="http://nodejs.cn/" target="_blank" rel="noopener">node.js</a></p>
+</li>
+<li><p>下载好可以开始安装了</p>
+</li>
+<li><p>鼠标右键任意地方，选择Git Bash</p>
+</li>
+<li><p>使用以下命令安装hexo(ps：以下命令中的”$“符号只为了让教程和实际看起来一致，实际输入命令只需输入”$“后面的命令即可)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果之后在使用的过程中，遇到以下的错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found : github</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>则运行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>接下来创建放置博客文件的文件夹：hexo文件夹。在自己想要的位置创建文件夹，如我hexo文件夹的位置为E:\hexo，名字和地方可以自由选择，当然最好不要放在中文路径下，至于原因，我想很多人懂得。之后进入文件夹，即E:\hexo内，点击鼠标右键，选择Git Bash，执行以下命令，Hexo会自动在该文件夹下下载搭建网站所需的所有文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>让我们看看刚刚下载的hexo文件带来了什么，在E:\hexo内执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后用浏览器访问<a href="http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape" target="_blank" rel="noopener">http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape</a></p>
+</li>
+</ul>
+<h1 id="接下来-部署本地文件到github"><a href="#接下来-部署本地文件到github" class="headerlink" title="接下来 部署本地文件到github"></a>接下来 部署本地文件到github</h1><ul>
+<li><p>既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。</p>
+</li>
+<li><p>在_config.yml最下方，添加如下配置(命令中的第一个huangjunhui为Github的用户名,第二个huangjunhui为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的)</p>
+</li>
+<li><p>配置好_config.yml并保存后，执行以下命令部署到Github上。如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下，具体方法史上最全github使用方法：github入门到精通里面有介绍到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行上面的第二个命令，可能会要你输入用户名和密码，皆为注册Github时的数据，输入密码是不显示任何东西的，输入完毕回车即可</p>
+</li>
+<li><p>此时，我们的博客已经搭建起来，并发布到Github上了，在浏览器访问huangjunhui.github.io就能看到自己的博客了。第一次访问刚地址，可能访问不了，您可以在几分钟后进行访问，一般不超过10分钟</p>
+</li>
+</ul>
+<h1 id="那么我们怎么写博客呢"><a href="#那么我们怎么写博客呢" class="headerlink" title="那么我们怎么写博客呢"></a>那么我们怎么写博客呢</h1><p>在hexo上使用markdown（一种标记语言，十分简单易学<a href="http://sspai.com/25137" target="_blank" rel="noopener">markdown教程链接</a>）</p>
+<h1 id="写完了怎么发布"><a href="#写完了怎么发布" class="headerlink" title="写完了怎么发布"></a>写完了怎么发布</h1><p>写完文章后，你可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>在本地预览效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>同步到github，然后浏览器输入<a href="http://xn--6qqv7i14ofosyrb.github.xn--io-3e9fw1jisgwqk/" target="_blank" rel="noopener">http://你的用户名.github.io</a>进行访问</p>
+<h1 id="如何换主题"><a href="#如何换主题" class="headerlink" title="如何换主题"></a>如何换主题</h1><ul>
+<li><p>如果觉得hexo自带的样式不好的话，可以在<a href="https://github.com/search?utf8=%E2%9C%93&q=hexo" target="_blank" rel="noopener">github</a>下搜索自己感兴趣的主题，需要先</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &quot;github上对应的网址&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置样式的内容同样是在样式目录下的全局配置文件中更改 _config.yml.根据样式提示更改</p>
+</li>
+<li><p>对样式进行覆盖并部署到github上。需要在当前博客目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="参考文档资料："><a href="#参考文档资料：" class="headerlink" title="参考文档资料："></a>参考文档资料：</h1><p><a href="http://blog.csdn.net/qq_15807167/article/details/51601234" target="_blank" rel="noopener">hexo在github上搭建个人博客详细步骤</a></p>
+<p><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">HEXO+Github,搭建属于自己的博客</a></p>
+<p><a href="http://blog.csdn.net/u012246342/article/details/51543370" target="_blank" rel="noopener">hexo安装成功，并且正确运行，但是localhost:4000不能访问</a></p>
+<p><a href="http://www.360doc.com/content/13/1030/07/3300331_325214833.shtml" target="_blank" rel="noopener">史上最全github使用方法:github入门到精通</a></p>
+<p><a href="http://sspai.com/25137" target="_blank" rel="noopener">认识与入门 Markdown</a></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chen Qian</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Ubuntu输入密码无法进入桌面的问题"><link rel="alternate" href="/atom.xml" title="Love your life">
+<link rel="canonical" href="http://yoursite.com/2017/06/21/Ubuntu输入密码无法进入桌面的问题/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Ubuntu输入密码无法进入桌面的问题 - Love your life</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Love your life</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Love your life</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Ubuntu输入密码无法进入桌面的问题
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-06-21
+        </span></div>
+    </header>
+
+    <div class="post-content"><hr>
+<p>win10自动更新后重启，结果就悲剧了，重启进入ubuntu没法继续更新，然后ubuntu就卡在登录界面，输入密码后还是显示输入密码，在知乎上找到了答案（原本以为只能在英文论坛找到的，想着必须得锻炼英文搜索的能力，但是这次中文论坛就搞定了＝。＝）这次很幸运地解决了问题</p>
+<hr>
+<p>方法如下：</p>
+<ul>
+<li><p>ctrl+alt+f1 进去tty1终端，输入用户名、密码</p>
+</li>
+<li><p>清理nvidia驱动残留</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge nvidia*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清理系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重装 ubuntu-desktop</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install --reinstall ubuntu-desktop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2017/07/23/Andrew_Ng的机器学习课程笔记/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Andrew_Ng的机器学习课程笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2017/05/14/在Ubuntu16.04LTS中安装Matlab R2016b问题/">
+        <span class="next-text nav-default">在Ubuntu16.04LTS中安装Matlab R2016b问题</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chen Qian</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

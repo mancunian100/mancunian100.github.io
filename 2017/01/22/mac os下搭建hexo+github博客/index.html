@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="mac os下搭建hexo+github博客"><link rel="alternate" href="/atom.xml" title="Love your life">
+<link rel="canonical" href="http://yoursite.com/2017/01/22/mac os下搭建hexo+github博客/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>mac os下搭建hexo+github博客 - Love your life</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Love your life</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Love your life</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">mac os下搭建hexo+github博客
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-01-22
+        </span></div>
+    </header>
+
+    <div class="post-content"><hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是我开始使用macbook air后的第一篇博客，内容也是在mac os下搭建hexo+github博客的教程</p>
+<p>环境：mac os x 10.11.6</p>
+<hr>
+<h1 id="安装环境配置"><a href="#安装环境配置" class="headerlink" title="安装环境配置"></a>安装环境配置</h1><ul>
+<li>安装xcode（hexo官网说明要安装command line tools，不过现在的xcode似乎自带了可以不用另外安装），前往app store下载安装（8.2.1版本安装包有5g左右）</li>
+<li>安装git，使用<a href="http://brew.sh/" target="_blank" rel="noopener">homebrew</a>安装</li>
+<li>安装node.js，直接去官网下载安装包比较快也省事<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a></li>
+</ul>
+<hr>
+<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
+<li><p>终端执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化，终端cd到一个指定的目录（我在~/Documents/目录下）执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终端cd到<folder>目录下，安装npm</folder></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此时开启hexo服务就可以在本地（本地预览地址<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> ）预览博客主页了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>（但是似乎这次我安装时默认themes文件夹是空的所以终端会提示缺少layout，浏览器显示空白页，不过从别的地方下一个theme的主题放进去就可以看到了）</p>
+<hr>
+<h1 id="关联已有的github"><a href="#关联已有的github" class="headerlink" title="关联已有的github"></a>关联已有的github</h1><p>之前我已经有了自己的github帐号并且有专门存放博客的repository，这次就是关联一下，然后上传ssh密钥</p>
+<ul>
+<li>在finder中打开hexo创建文件夹下的_config.yml配置文件，拉到最底下修改成这样<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/mancunian100/mancunian100.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>(注意所有的：后面要加上一个空格，否则hexo命令会报错)</p>
+<ul>
+<li>在hexo文件夹目录下执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果报错，则执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再执行命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果报错，则执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后再执行hexo g和hexo d</p>
+<ul>
+<li>此时终端会提示输入github的用户名和密码，输入完成后就已经成功链接了github上的repository，这时浏览器输入mancunian100.github.io就可以看到博客页面了</li>
+</ul>
+<hr>
+<h1 id="添加ssh-key到github"><a href="#添加ssh-key到github" class="headerlink" title="添加ssh key到github"></a>添加ssh key到github</h1><ul>
+<li>检查ssh keys是否存在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果存在可以跳过下一步</p>
+<ul>
+<li>生成新的ssh key<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;876209107@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>默认会在相应路径下（~/.ssh/id_rsa.pub）生成id_rsa和id_rsa.pub两个文件，其中id_rsa是私钥，id_rsa.pub是公钥，私钥不要公开或者上传，公钥可以上传至github进行验证</p>
+<ul>
+<li>将ssh key添加至github<br>由于/.ssh文件夹默认不会在finder中显示，可以在终端中用vim打开并复制，然后进入github -&gt;settings -&gt;ssh and gpg keys -&gt;new ssh key，将复制的公钥粘贴至key下面，上面的title可以随便写，我这次写的是关于macbook air的，最后点击add ssh key就完成了</li>
+</ul>
+<hr>
+<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1><p>至此在mac上部署hexo的工作已经完成，可以像以前一样使用hexo new “post”命令写博客，hexo clean清除缓存文件，hexo g生成新的文件，hexo d同步部署到github端</p>
+<hr>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>由于这种部署方法相当于重新搭建一个新的博客，在关联github后以前那些文章的md文件都会在repository清空，所以事先需要把repo里的文章下载备份一下，目前还没有去探索一种可以直接无缝接管的方法</p>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>1.<a href="http://jeasonstudio.github.io/2016/05/26/Mac%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EGitHub-Page%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">Mac上搭建基于GitHub Page的Hexo博客</a></p>
+<p>2.<a href="http://gonghonglou.com/2016/02/03/firstblog/" target="_blank" rel="noopener">Mac上搭建基于GitHub的Hexo博客</a></p>
+<p>3.<a href="http://risekyle.cn/2017/01/16/%E7%AE%80%E6%B4%81%E5%BC%BA%E5%A4%A7%E7%9A%84%20Hexo%20%E4%B8%BB%E9%A2%98%20Icarus/" target="_blank" rel="noopener">安装icarus主题</a></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2017/02/25/virtualenv独立使用不同版本python进行开发/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">virtualenv独立使用不同版本python进行开发</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2016/11/25/OpenVPN服务器搭建教程/">
+        <span class="next-text nav-default">OpenVPN服务器搭建教程</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chen Qian</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

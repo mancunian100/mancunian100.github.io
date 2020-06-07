@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="django实现上传文件的页面"><link rel="alternate" href="/atom.xml" title="Love your life">
+<link rel="canonical" href="http://yoursite.com/2019/07/08/django实现上传文件的页面/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>django实现上传文件的页面 - Love your life</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Love your life</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Love your life</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">django实现上传文件的页面
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-07-08
+        </span></div>
+    </header>
+
+    <div class="post-content"><hr>
+<p>利用Django实现一个简单的文件上传功能</p>
+<p>参考<a href="https://blog.csdn.net/a18852867035/article/details/66976028" target="_blank" rel="noopener">django实战（三）实现简单的文件上传功能</a></p>
+<hr>
+<ul>
+<li><p>在django的views.py文件中读取前端传来的文件，并保存到服务器端，参考<a href="https://jingyan.baidu.com/article/425e69e60d978dbe15fc16b0.html" target="_blank" rel="noopener">django怎样保存上传的文件</a><br>，并调用接口更新到数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">from django.http import HttpResponse</span><br><span class="line">from blog.models import *</span><br><span class="line"></span><br><span class="line"># Create your views here.</span><br><span class="line">class NormalUserForm(forms.Form):</span><br><span class="line">    #form的定义和model类的定义很像</span><br><span class="line">    username=forms.CharField()</span><br><span class="line">    headImg=forms.FileField()</span><br><span class="line">#在View中使用已定义的Form方法</span><br><span class="line">def registerNormalUser(request):</span><br><span class="line">    #刚显示时调用GET方法</span><br><span class="line">    if request.method==&quot;POST&quot;:</span><br><span class="line">        uf = NormalUserForm(request.POST,request.FILES)#刚显示时，实例化表单（是否有数据）</span><br><span class="line">        if uf.is_valid():#验证数据是否合法，当合法时可以使用cleaned_data属性。</span><br><span class="line">            #用来得到经过&apos;clean&apos;格式化的数据，会所提交过来的数据转化成合适的Python的类型。</span><br><span class="line">            username = uf.cleaned_data[&apos;username&apos;]</span><br><span class="line">            headImg = uf.cleaned_data[&apos;headImg&apos;]</span><br><span class="line">            #write in database</span><br><span class="line">            normalUser=NormalUser()#实例化NormalUser对象</span><br><span class="line">            normalUser.username = username</span><br><span class="line">            normalUser.headImg = headImg</span><br><span class="line">            normalUser.save()#保存到数据库表中</span><br><span class="line">            return HttpResponse(&apos;Upload Succeed!&apos;)#重定向显示内容（跳转后内容）</span><br><span class="line">    else:</span><br><span class="line">        uf=NormalUserForm()#刚显示时，实例化空表单</span><br><span class="line">    return render(request,&apos;register.html&apos;,&#123;&apos;uf&apos;:uf&#125;)#只有刚显示时才起作用</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后配置urls.py文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from django.conf.urls import url</span><br><span class="line">from django.contrib import admin</span><br><span class="line">from blog.views import *</span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</span><br><span class="line">    url(r&apos;^register/$&apos;,registerNormalUser),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">js技巧总结——ajax，innerhtml， 动态表单</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/06/28/从excel到mysql数据库，数据映射技巧总结/">
+        <span class="next-text nav-default">从excel到mysql数据库，数据映射技巧总结</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chen Qian</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

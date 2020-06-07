@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="OpenVPN服务器搭建教程"><link rel="alternate" href="/atom.xml" title="Love your life">
+<link rel="canonical" href="http://yoursite.com/2016/11/25/OpenVPN服务器搭建教程/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>OpenVPN服务器搭建教程 - Love your life</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Love your life</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Love your life</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">OpenVPN服务器搭建教程
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-11-25
+        </span></div>
+    </header>
+
+    <div class="post-content"><hr>
+<p>之前领了一个腾讯云1元代金券，于是想用这个来干点什么，第一次玩服务器感觉挺有意思，腾讯云的控制台可以在网页浏览器上直接打开终端，可以实时监控服务器的运行情况，玩坏了可以直接重装（此处有滑稽脸）而且linux系统之间似乎可以随便换，只要配置相同就可以。唯一就是这个1元的配置确实有点不堪，1G内存1M带宽20G系统盘，感觉也只能玩玩。网上看到说openvpn服务器可以实现通过代理伪装成通信商的免费流量来作弊，实现免流，听着很诱人，于是自己试了试</p>
+<hr>
+<p>环境： 腾讯云centos 6.7 32位，用smartty作终端，用winscp下载服务器上的文件</p>
+<p>教程原贴：<a href="http://www.aeink.com/?post=42" target="_blank" rel="noopener">搭建OpenVPN云免服务器 For iPhone</a></p>
+<h1 id="参考资料文档"><a href="#参考资料文档" class="headerlink" title="参考资料文档"></a>参考资料文档</h1><p><a href="http://www.aeink.com/?post=42" target="_blank" rel="noopener">搭建OpenVPN云免服务器 For iPhone</a></p>
+<p><a href="http://blog.csdn.net/qq_16253681/article/details/52002916" target="_blank" rel="noopener">Ubuntu Server搭建OpenVPN服务器实战</a></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2017/01/22/mac os下搭建hexo+github博客/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">mac os下搭建hexo+github博客</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/">
+        <span class="next-text nav-default">双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chen Qian</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

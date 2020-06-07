@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="js技巧总结——ajax，innerhtml， 动态表单"><link rel="alternate" href="/atom.xml" title="Love your life">
+<link rel="canonical" href="http://yoursite.com/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>js技巧总结——ajax，innerhtml， 动态表单 - Love your life</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Love your life</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Love your life</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">js技巧总结——ajax，innerhtml， 动态表单
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-07-16
+        </span></div>
+    </header>
+
+    <div class="post-content"><hr>
+<p>在写前端的动态表单时有许多需要实现的功功能需求，需要使用js的一些其他组件和技巧，比如ajax和innerhtml，需要用到事件监听等等，最后遇到的最难的问题应该是如何选择boostrap中的动态selection数据进行提交</p>
+<hr>
+<ul>
+<li><p>在点击add按钮后触发添加标签选项的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// target</span><br><span class="line">$(&apos;.add-one&apos;).click(function()&#123;</span><br><span class="line">    $(&apos;.dynamic-target&apos;).first().clone().appendTo(&apos;.dynamic-target-stuff&apos;).show();</span><br><span class="line">    attach_delete();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">function attach_delete()&#123;</span><br><span class="line">$(&apos;.delete&apos;).off();</span><br><span class="line">    $(&apos;.delete&apos;).click(function()&#123;</span><br><span class="line">        console.log(&quot;click&quot;);</span><br><span class="line">        $(this).closest(&apos;.form-group&apos;).remove();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在选择了相对应的游戏后，使用ajax动态获取后端接口返回来的游戏数据，将其作为动态表单的数据选项呈现在用户界面上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// dynamic game selection in the form</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &quot;/simulation/getGameList&quot;,</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function(data) &#123;</span><br><span class="line">        // add the game selection from db</span><br><span class="line">        for (var i = 0; i &lt; data.length; i += 1) &#123;</span><br><span class="line">            $(&apos;.selectpicker&apos;).append(&quot;&lt;option value=&quot; + data[i].id + &quot;&gt;&quot;  + data[i].name + &quot;&lt;/option&gt;&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">        // $(&apos;#name&apos;).selectpicker(&apos;refresh&apos;);</span><br><span class="line">        // $(&apos;#name&apos;).selectpicker(&apos;render&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当游戏发生改变时，需要使用innerhtml对动态表单中的列表选项进行修改，参考<a href="https://www.runoob.com/jsref/prop-html-innerhtml.html" target="_blank" rel="noopener">https://www.runoob.com/jsref/prop-html-innerhtml.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// change the game, change the game_id, game_entities</span><br><span class="line">function changeGame(sel) &#123;</span><br><span class="line">    document.getElementById(&quot;target_item&quot;).innerHTML=&quot;&quot;;</span><br><span class="line">    document.getElementById(&quot;resource_item&quot;).innerHTML=&quot;&quot;;</span><br><span class="line">    game_id = sel.value;</span><br><span class="line">    // reset the submit_data and game_entities</span><br><span class="line">    submit_data = &#123;&#125;;</span><br><span class="line">    game_entities = &#123;&#125;;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: &quot;/simulation/getGameAllEntity?&quot; + game_id,</span><br><span class="line">        dataType: &quot;json&quot;,</span><br><span class="line">        success: function(data) &#123;</span><br><span class="line">            for (var i = 0; i &lt; data.length; i += 1) &#123;</span><br><span class="line">                game_entities[data[i][&quot;id&quot;]] = data[i][&quot;name&quot;];</span><br><span class="line">            &#125;</span><br><span class="line">            // console.log(game_entities);</span><br><span class="line">            for (var id in game_entities) &#123;</span><br><span class="line">                $(&apos;.form_target&apos;).append(&quot;&lt;option value=&quot; + id + &quot;&gt;&quot; + game_entities[id] + &quot;&lt;/option&gt;&quot;)</span><br><span class="line">                $(&apos;.form_resource&apos;).append(&quot;&lt;option value=&quot; + id + &quot;&gt;&quot; + game_entities[id] + &quot;&lt;/option&gt;&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后要对已经选中的数据进行提交，这里走了很多弯路，先后参考了几篇博客<br><a href="https://zhidao.baidu.com/question/548129683.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/548129683.html</a><br><a href="https://blog.csdn.net/qq_35494342/article/details/80002552" target="_blank" rel="noopener">https://blog.csdn.net/qq_35494342/article/details/80002552</a><br><a href="https://blog.zfanw.com/jquery-dynamic-insert-element-bind-event/" target="_blank" rel="noopener">https://blog.zfanw.com/jquery-dynamic-insert-element-bind-event/</a><br>但是效果均都不是我所需要的对相应boostrap的表单选中数据并提交，最后发现其实只需要对相应的div标签中的父class进行选择，就可以做到选中数据了，其中用到了&gt;选择符，和each方法迭代，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// collect dynamic target</span><br><span class="line">submit_data[&quot;target_id&quot;] = [];</span><br><span class="line">$(&quot;#target_selection:visible &gt; option:selected&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;target_id&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line">submit_data[&quot;target_num&quot;] = [];</span><br><span class="line">$(&quot;.dynamic-target input:visible&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;target_num&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// collect dynamic resource</span><br><span class="line">submit_data[&quot;resource_id&quot;] = [];</span><br><span class="line">$(&quot;#resource_selection:visible &gt; option:selected&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;resource_id&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line">submit_data[&quot;resource_num&quot;] = [];</span><br><span class="line">$(&quot;.dynamic-resource input:visible&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;resource_num&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line">// console.log(submit_data);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2019/07/24/django的ORM实践/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">django的ORM实践</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/07/08/django实现上传文件的页面/">
+        <span class="next-text nav-default">django实现上传文件的页面</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chen Qian</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>
