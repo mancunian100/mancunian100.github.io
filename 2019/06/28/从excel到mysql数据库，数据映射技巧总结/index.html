@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2016 | Hexo</title>
+  <title>从excel到mysql数据库，数据映射技巧总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="读取excel这种格式的数据遇到了很多问题和麻烦，总结的技巧如下   技巧总结：   在处理空值和0时，可以一起处理，读出字符串，判断长度是否大于1（默认非0值的字符串长度都大于1）  在处理使用＊作为分割符号时，可以用split方法取出字符串数组，若数组长度为2就说明有分割，若为1则默认数量为1  面对合并单元格的excel数据，需要对这种情况进行特殊处理，根据excel的行号特点可以使用如下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从excel到mysql数据库，数据映射技巧总结">
+<meta property="og:url" content="http://yoursite.com/2019/06/28/从excel到mysql数据库，数据映射技巧总结/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="读取excel这种格式的数据遇到了很多问题和麻烦，总结的技巧如下   技巧总结：   在处理空值和0时，可以一起处理，读出字符串，判断长度是否大于1（默认非0值的字符串长度都大于1）  在处理使用＊作为分割符号时，可以用split方法取出字符串数组，若数组长度为2就说明有分割，若为1则默认数量为1  面对合并单元格的excel数据，需要对这种情况进行特殊处理，根据excel的行号特点可以使用如下">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-18T14:28:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="从excel到mysql数据库，数据映射技巧总结">
+<meta name="twitter:description" content="读取excel这种格式的数据遇到了很多问题和麻烦，总结的技巧如下   技巧总结：   在处理空值和0时，可以一起处理，读出字符串，判断长度是否大于1（默认非0值的字符串长度都大于1）  在处理使用＊作为分割符号时，可以用split方法取出字符串数组，若数组长度为2就说明有分割，若为1则默认数量为1  面对合并单元格的excel数据，需要对这种情况进行特殊处理，根据excel的行号特点可以使用如下">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,78 +64,76 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/25/OpenVPN服务器搭建教程/" class="archive-article-date">
-  <time datetime="2016-11-24T16:00:00.000Z" itemprop="datePublished">Nov 25</time>
+        <section id="main"><article id="post-从excel到mysql数据库，数据映射技巧总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/28/从excel到mysql数据库，数据映射技巧总结/" class="article-date">
+  <time datetime="2019-06-27T16:00:00.000Z" itemprop="datePublished">2019-06-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/25/OpenVPN服务器搭建教程/">OpenVPN服务器搭建教程</a>
+    <h1 class="article-title" itemprop="name">
+      从excel到mysql数据库，数据映射技巧总结
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/" class="archive-article-date">
-  <time datetime="2016-11-23T16:00:00.000Z" itemprop="datePublished">Nov 24</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/">双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）</a>
-    </h1>
-  
+        <hr>
+<p>读取excel这种格式的数据遇到了很多问题和麻烦，总结的技巧如下</p>
+<hr>
+<ul>
+<li>技巧总结：</li>
+</ul>
+<ol>
+<li><p>在处理空值和0时，可以一起处理，读出字符串，判断长度是否大于1（默认非0值的字符串长度都大于1）</p>
+</li>
+<li><p>在处理使用＊作为分割符号时，可以用split方法取出字符串数组，若数组长度为2就说明有分割，若为1则默认数量为1</p>
+</li>
+<li><p>面对合并单元格的excel数据，需要对这种情况进行特殊处理，根据excel的行号特点可以使用如下方法：<br>在某一列可能出现合并单元格时，由于excel在行号处理时仍然会将这一行在数值上分隔开，所以可以先使用一个临时变量记录上一行的值，若下一行值为空，则仍使用临时变量中存储的值，直到下一次遇到非空的行</p>
+</li>
+<li><p>由于qualification这一列数据的特殊性，需要分三种情况讨论数据的分类，分别是数据属于cost，属于status，属于trade，分别在三张表中进行查询，获取对应id后再写入</p>
+</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/23/Hexo + Github搭建个人博客教程/" class="archive-article-date">
-  <time datetime="2016-11-22T16:00:00.000Z" itemprop="datePublished">Nov 23</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/23/Hexo + Github搭建个人博客教程/">Hexo + Github搭建个人博客教程</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/28/从excel到mysql数据库，数据映射技巧总结/" data-id="cjzh2g8fr0018pzw5feydaanf" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/08/django实现上传文件的页面/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          django实现上传文件的页面
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/06/26/一个不错的bootstrap动态表单模板/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一个不错的bootstrap动态表单模板</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

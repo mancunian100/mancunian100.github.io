@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2016 | Hexo</title>
+  <title>python包读取excel | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="以前正好写过python读取excel的脚本，这里就直接用一样的xlrd包来实现   参考xlrd文档python-excel/xlrd   快速上手123456789import xlrdbook = xlrd.open_workbook(&amp;quot;myfile.xls&amp;quot;)print(&amp;quot;The number of worksheets is &amp;#123;0&amp;#125;&amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python包读取excel">
+<meta property="og:url" content="http://yoursite.com/2019/06/24/python包读取excel/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="以前正好写过python读取excel的脚本，这里就直接用一样的xlrd包来实现   参考xlrd文档python-excel/xlrd   快速上手123456789import xlrdbook = xlrd.open_workbook(&amp;quot;myfile.xls&amp;quot;)print(&amp;quot;The number of worksheets is &amp;#123;0&amp;#125;&amp;q">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-18T14:27:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="python包读取excel">
+<meta name="twitter:description" content="以前正好写过python读取excel的脚本，这里就直接用一样的xlrd包来实现   参考xlrd文档python-excel/xlrd   快速上手123456789import xlrdbook = xlrd.open_workbook(&amp;quot;myfile.xls&amp;quot;)print(&amp;quot;The number of worksheets is &amp;#123;0&amp;#125;&amp;q">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,78 +64,71 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/25/OpenVPN服务器搭建教程/" class="archive-article-date">
-  <time datetime="2016-11-24T16:00:00.000Z" itemprop="datePublished">Nov 25</time>
+        <section id="main"><article id="post-python包读取excel" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/24/python包读取excel/" class="article-date">
+  <time datetime="2019-06-23T16:00:00.000Z" itemprop="datePublished">2019-06-24</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/25/OpenVPN服务器搭建教程/">OpenVPN服务器搭建教程</a>
+    <h1 class="article-title" itemprop="name">
+      python包读取excel
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/" class="archive-article-date">
-  <time datetime="2016-11-23T16:00:00.000Z" itemprop="datePublished">Nov 24</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/">双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）</a>
-    </h1>
-  
+        <hr>
+<p>以前正好写过python读取excel的脚本，这里就直接用一样的xlrd包来实现</p>
+<hr>
+<ul>
+<li>参考xlrd文档<a href="https://github.com/python-excel/xlrd" target="_blank" rel="noopener">python-excel/xlrd</a></li>
+</ul>
+<ul>
+<li>快速上手<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import xlrd</span><br><span class="line">book = xlrd.open_workbook(&quot;myfile.xls&quot;)</span><br><span class="line">print(&quot;The number of worksheets is &#123;0&#125;&quot;.format(book.nsheets))</span><br><span class="line">print(&quot;Worksheet name(s): &#123;0&#125;&quot;.format(book.sheet_names()))</span><br><span class="line">sh = book.sheet_by_index(0)</span><br><span class="line">print(&quot;&#123;0&#125; &#123;1&#125; &#123;2&#125;&quot;.format(sh.name, sh.nrows, sh.ncols))</span><br><span class="line">print(&quot;Cell D30 is &#123;0&#125;&quot;.format(sh.cell_value(rowx=29, colx=3)))</span><br><span class="line">for rx in range(sh.nrows):</span><br><span class="line">    print(sh.row(rx))</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/23/Hexo + Github搭建个人博客教程/" class="archive-article-date">
-  <time datetime="2016-11-22T16:00:00.000Z" itemprop="datePublished">Nov 23</time>
-</a>
+</li>
+</ul>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/23/Hexo + Github搭建个人博客教程/">Hexo + Github搭建个人博客教程</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/24/python包读取excel/" data-id="cjzh2e3ct0010pzw5jljwr3mi" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/26/python中使用原生sql读写数据库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python中使用原生sql读写数据库
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/06/21/一个代码生成图片工具/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一个代码生成图片工具</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

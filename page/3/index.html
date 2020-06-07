@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Ubuntu输入密码无法进入桌面的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/21/Ubuntu输入密码无法进入桌面的问题/" class="article-date">
+  <time datetime="2017-06-20T16:00:00.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/Ubuntu输入密码无法进入桌面的问题/">Ubuntu输入密码无法进入桌面的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>win10自动更新后重启，结果就悲剧了，重启进入ubuntu没法继续更新，然后ubuntu就卡在登录界面，输入密码后还是显示输入密码，在知乎上找到了答案（原本以为只能在英文论坛找到的，想着必须得锻炼英文搜索的能力，但是这次中文论坛就搞定了＝。＝）这次很幸运地解决了问题</p>
+<hr>
+<p>方法如下：</p>
+<ul>
+<li><p>ctrl+alt+f1 进去tty1终端，输入用户名、密码</p>
+</li>
+<li><p>清理nvidia驱动残留</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge nvidia*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清理系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重装 ubuntu-desktop</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install --reinstall ubuntu-desktop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/21/Ubuntu输入密码无法进入桌面的问题/" data-id="cjzh2636x000cpzw5byxvxhy8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-在Ubuntu16.04LTS中安装Matlab R2016b问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/14/在Ubuntu16.04LTS中安装Matlab R2016b问题/" class="article-date">
+  <time datetime="2017-05-13T16:00:00.000Z" itemprop="datePublished">2017-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/14/在Ubuntu16.04LTS中安装Matlab R2016b问题/">在Ubuntu16.04LTS中安装Matlab R2016b问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Linux上装matlab居然碰到了很多奇怪的，以前都没想到的问题</p>
+<ul>
+<li><p>首先是在挂载的DVD目录中是无法执行install文件来安装的，正确步骤是退出到上一级（只要不是在DVD目录中就可以），然后执行matlab/install就可以了。其它具体的安装步骤可以参照这个链接的教程<a href="http://www.linuxdiyf.com/linux/27432.html" target="_blank" rel="noopener">Ubuntu 16.04安装Matlab 2016b教程</a>（就是要退出DVD目录）</p>
+</li>
+<li><p>貌似Linux对tar的支持却是不太好，解压有问题，需要在windows中先把crack文件解压备用</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/14/在Ubuntu16.04LTS中安装Matlab R2016b问题/" data-id="cjzh25ejg0009pzw5h4tfdj3t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu搭建深度学习环境cuda + cuDNN + Tensorflow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/15/Ubuntu搭建深度学习环境cuda + cuDNN + Tensorflow/" class="article-date">
+  <time datetime="2017-04-14T16:00:00.000Z" itemprop="datePublished">2017-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/15/Ubuntu搭建深度学习环境cuda + cuDNN + Tensorflow/">Ubuntu搭建深度学习环境cuda + cuDNN + Tensorflow</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>探索学习路径中发现了使用cuda作为并行计算加速平台可以加速CFD的计算、渲染，结合现在火热的深度学习风潮，各种cuda加速的方法、资源都可以应用到我的CFD仿真当中，于是找到了一篇写得比较详细的深度学习环境搭建教程进行本地的深度学习平台搭建，原帖链接：<a href="https://zhuanlan.zhihu.com/p/25433912" target="_blank" rel="noopener">炼丹炉(2)–系统安装：Ubuntu 16.10 + cuda 8.0 + cudnn 5.1 + tensorflow r1.0 GPU</a></p>
+<hr>
+<h1 id="几点说明："><a href="#几点说明：" class="headerlink" title="几点说明："></a>几点说明：</h1><ul>
+<li>cudnn的下载需要Nvidia的账号，注册的时候会调查开发者的工作领域（还有在ubuntu上用qq邮箱接收链接真是不方便，密码原因，最后是在mac上注册的＝。＝）</li>
+<li>安装环境：Ubuntu16.04 LST(64-bit)</li>
+<li>硬件环境：CPU I7-4790;GPU GTX 960(4G);RAM 8G</li>
+<li>最后tensorflow安装成功的标志是能够输出hello world，感觉一次成功的体验还是不错的<br>中间下载cuda安装包的时候会遇到提示，要求关闭bios的secure boot，然而我之前就没能成功关闭我的台式机的这个secure boot，但是后面似乎没遇到所谓的第三方包、软件的安装问题，反正就是过去了</li>
+<li>安装tensorflow过程中会安装python-virtualenv来管理python环境，意味着每次使用tensorflow前需要active这个名为tensorflow-gpu的环境</li>
+</ul>
+<h1 id="内容搬运"><a href="#内容搬运" class="headerlink" title="内容搬运"></a>内容搬运</h1><p>cuda 和 cudnn 是 Nvidia 出的 GPU 加速工具。<br>GPU 版本的 tensorflow，依赖于这两个工具。</p>
+<p>安装 cuda 和 cudnn 时，需要先在 Nvidia 官网下载安装包。<br>免费注册账号以后，才可以下载。</p>
+<p>关于 gcc 的版本。<br>cuda 官网以及各种攻略里，都提到 gcc 版本太新不支持。<br>其实，那是针对基于 cuda 开发者的。<br>我们只装个 tensorflow，对 gcc 版本没要求。<br>gcc 版本不对，cuda 的 examples 肯定是编译不通过的。<br>然而，不在乎。<br>tensorflow 跑的很正常。</p>
+<p>安装 ubuntu 16.10<br>首先，要制作 ubuntu 启动 U 盘。不细说。<br>安装期间，我的无线鼠标不能用，安装后正常。<br>应该是驱动的问题。<br>用键盘操作可以完成安装。</p>
+<p>关于 swap 分区<br>建议，设为内存大小的 1.5 倍。</p>
+<p>换一个速度快的 source</p>
+<p>安装 CUDA 8.0<br>用的 deb(network) 的安装方式<br>设置环境变量<br>重启电脑，否则显卡驱动不生效。<br>检查显卡驱动安装结果</p>
+<p>安装 cudnn 5.1</p>
+<p>安装 tensorflow r1.0 GPU 版本</p>
+<p>验证 tensorflow 安装</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/15/Ubuntu搭建深度学习环境cuda + cuDNN + Tensorflow/" data-id="cjzh24pr60007pzw5fmr2b2bq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python利用xlrd, xlwt, xlutils对excel表格操作（不支持xlsx格式）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/01/python利用xlrd, xlwt, xlutils对excel表格操作（不支持xlsx格式）/" class="article-date">
+  <time datetime="2017-02-28T16:00:00.000Z" itemprop="datePublished">2017-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/01/python利用xlrd, xlwt, xlutils对excel表格操作（不支持xlsx格式）/">python利用xlrd, xlwt, xlutils对excel表格操作（不支持xlsx格式）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>资料汇总</p>
+<ul>
+<li><a href="http://liluo.org/blog/2011/01/python-using-xlrd-xlwt-operate-excel/" target="_blank" rel="noopener">利用xlrd读取xlwt写入（不能修改）</a></li>
+<li><a href="https://my.oschina.net/dddttttt/blog/466103" target="_blank" rel="noopener">利用xlutils 修改</a></li>
+<li><a href="http://www.gocalf.com/blog/python-read-write-excel.html" target="_blank" rel="noopener">对比4种python操作excel的工具（XlsxWriter, xlrd&amp;xlwt, OpenPyXL, Microsoft Excel API）</a></li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143193331387014ccd1040c814dee8b2164bb4f064cff000" target="_blank" rel="noopener">廖雪峰的python教程正则表达式</a></li>
+<li><a href="http://blog.csdn.net/youngwhz1/article/details/51660865" target="_blank" rel="noopener">python字符串和数字相互转换（将正则表达式匹配出来的字符串转换为数字进行处理）</a></li>
+<li><a href="http://www.2cto.com/kf/201409/335422.html" target="_blank" rel="noopener">python中两个整数相除得到浮点数的值的方法</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/01/python利用xlrd, xlwt, xlutils对excel表格操作（不支持xlsx格式）/" data-id="cjzh23iv20005pzw5suuk9g3i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-virtualenv独立使用不同版本python进行开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/25/virtualenv独立使用不同版本python进行开发/" class="article-date">
+  <time datetime="2017-02-24T16:00:00.000Z" itemprop="datePublished">2017-02-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/25/virtualenv独立使用不同版本python进行开发/">virtualenv独立使用不同版本python进行开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于python2和python3版本存在复杂的历史问题，过去的大型项目由python2编写，不可能全部转为python3，但是python3新版本又是未来趋势不能不学，所以2个版本同时使用才是比较现实的办法，那么virtualenv就可以实现让不同的项目处于各自独立的环境中</p>
+<p>环境： mac os 10.11.6</p>
+<hr>
+<ul>
+<li><p>安装virtualenv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easy_install virtualenv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后在指定的目录下创建文件夹，执行（名字venv可以自己定义）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualenv venv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每次使用时都要激活相应的环境，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. venv/bin/activate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果权限不允许，那么切换到venv/bin目录下，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 activate</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>再激活就可以了</p>
+<p>当激活环境后，shell的提示符会变成如下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3635482-0275ca80d77ab1b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic2017/02/25.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/25/virtualenv独立使用不同版本python进行开发/" data-id="cjzh21ti60001pzw5jqdhkfsm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-flask出错[Error 48]kill进程的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/25/flask出错[Error 48]kill进程的方法/" class="article-date">
+  <time datetime="2017-02-24T16:00:00.000Z" itemprop="datePublished">2017-02-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/25/flask出错[Error 48]kill进程的方法/">flask出错[Error 48]kill进程的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>碰到了flask错误socket.error: [Errno 48] Address already in use各种重新安装flask都无效，然后找到了kill进程的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i:5000</span><br></pre></td></tr></table></figure>
+
+<p>（5000是指之前使用的端口）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill aaaa</span><br></pre></td></tr></table></figure>
+
+<p>（aaaa是指上面出现的PID代号）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/25/flask出错[Error 48]kill进程的方法/" data-id="cjzh22py40003pzw56szf4duo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mac os下搭建hexo+github博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/22/mac os下搭建hexo+github博客/" class="article-date">
+  <time datetime="2017-01-21T16:00:00.000Z" itemprop="datePublished">2017-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/22/mac os下搭建hexo+github博客/">mac os下搭建hexo+github博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是我开始使用macbook air后的第一篇博客，内容也是在mac os下搭建hexo+github博客的教程</p>
+<p>环境：mac os x 10.11.6</p>
+<hr>
+<h1 id="安装环境配置"><a href="#安装环境配置" class="headerlink" title="安装环境配置"></a>安装环境配置</h1><ul>
+<li>安装xcode（hexo官网说明要安装command line tools，不过现在的xcode似乎自带了可以不用另外安装），前往app store下载安装（8.2.1版本安装包有5g左右）</li>
+<li>安装git，使用<a href="http://brew.sh/" target="_blank" rel="noopener">homebrew</a>安装</li>
+<li>安装node.js，直接去官网下载安装包比较快也省事<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a></li>
+</ul>
+<hr>
+<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
+<li><p>终端执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化，终端cd到一个指定的目录（我在~/Documents/目录下）执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终端cd到<folder>目录下，安装npm</folder></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此时开启hexo服务就可以在本地（本地预览地址<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> ）预览博客主页了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>（但是似乎这次我安装时默认themes文件夹是空的所以终端会提示缺少layout，浏览器显示空白页，不过从别的地方下一个theme的主题放进去就可以看到了）</p>
+<hr>
+<h1 id="关联已有的github"><a href="#关联已有的github" class="headerlink" title="关联已有的github"></a>关联已有的github</h1><p>之前我已经有了自己的github帐号并且有专门存放博客的repository，这次就是关联一下，然后上传ssh密钥</p>
+<ul>
+<li>在finder中打开hexo创建文件夹下的_config.yml配置文件，拉到最底下修改成这样<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/mancunian100/mancunian100.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>(注意所有的：后面要加上一个空格，否则hexo命令会报错)</p>
+<ul>
+<li>在hexo文件夹目录下执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果报错，则执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再执行命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果报错，则执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后再执行hexo g和hexo d</p>
+<ul>
+<li>此时终端会提示输入github的用户名和密码，输入完成后就已经成功链接了github上的repository，这时浏览器输入mancunian100.github.io就可以看到博客页面了</li>
+</ul>
+<hr>
+<h1 id="添加ssh-key到github"><a href="#添加ssh-key到github" class="headerlink" title="添加ssh key到github"></a>添加ssh key到github</h1><ul>
+<li>检查ssh keys是否存在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果存在可以跳过下一步</p>
+<ul>
+<li>生成新的ssh key<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;876209107@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>默认会在相应路径下（~/.ssh/id_rsa.pub）生成id_rsa和id_rsa.pub两个文件，其中id_rsa是私钥，id_rsa.pub是公钥，私钥不要公开或者上传，公钥可以上传至github进行验证</p>
+<ul>
+<li>将ssh key添加至github<br>由于/.ssh文件夹默认不会在finder中显示，可以在终端中用vim打开并复制，然后进入github -&gt;settings -&gt;ssh and gpg keys -&gt;new ssh key，将复制的公钥粘贴至key下面，上面的title可以随便写，我这次写的是关于macbook air的，最后点击add ssh key就完成了</li>
+</ul>
+<hr>
+<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1><p>至此在mac上部署hexo的工作已经完成，可以像以前一样使用hexo new “post”命令写博客，hexo clean清除缓存文件，hexo g生成新的文件，hexo d同步部署到github端</p>
+<hr>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>由于这种部署方法相当于重新搭建一个新的博客，在关联github后以前那些文章的md文件都会在repository清空，所以事先需要把repo里的文章下载备份一下，目前还没有去探索一种可以直接无缝接管的方法</p>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>1.<a href="http://jeasonstudio.github.io/2016/05/26/Mac%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EGitHub-Page%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">Mac上搭建基于GitHub Page的Hexo博客</a></p>
+<p>2.<a href="http://gonghonglou.com/2016/02/03/firstblog/" target="_blank" rel="noopener">Mac上搭建基于GitHub的Hexo博客</a></p>
+<p>3.<a href="http://risekyle.cn/2017/01/16/%E7%AE%80%E6%B4%81%E5%BC%BA%E5%A4%A7%E7%9A%84%20Hexo%20%E4%B8%BB%E9%A2%98%20Icarus/" target="_blank" rel="noopener">安装icarus主题</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/22/mac os下搭建hexo+github博客/" data-id="cjzh1zydp0001orw573sn4d9i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-OpenVPN服务器搭建教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/25/OpenVPN服务器搭建教程/" class="article-date">
+  <time datetime="2016-11-24T16:00:00.000Z" itemprop="datePublished">2016-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/25/OpenVPN服务器搭建教程/">OpenVPN服务器搭建教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>之前领了一个腾讯云1元代金券，于是想用这个来干点什么，第一次玩服务器感觉挺有意思，腾讯云的控制台可以在网页浏览器上直接打开终端，可以实时监控服务器的运行情况，玩坏了可以直接重装（此处有滑稽脸）而且linux系统之间似乎可以随便换，只要配置相同就可以。唯一就是这个1元的配置确实有点不堪，1G内存1M带宽20G系统盘，感觉也只能玩玩。网上看到说openvpn服务器可以实现通过代理伪装成通信商的免费流量来作弊，实现免流，听着很诱人，于是自己试了试</p>
+<hr>
+<p>环境： 腾讯云centos 6.7 32位，用smartty作终端，用winscp下载服务器上的文件</p>
+<p>教程原贴：<a href="http://www.aeink.com/?post=42" target="_blank" rel="noopener">搭建OpenVPN云免服务器 For iPhone</a></p>
+<h1 id="参考资料文档"><a href="#参考资料文档" class="headerlink" title="参考资料文档"></a>参考资料文档</h1><p><a href="http://www.aeink.com/?post=42" target="_blank" rel="noopener">搭建OpenVPN云免服务器 For iPhone</a></p>
+<p><a href="http://blog.csdn.net/qq_16253681/article/details/52002916" target="_blank" rel="noopener">Ubuntu Server搭建OpenVPN服务器实战</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/25/OpenVPN服务器搭建教程/" data-id="cjzh1lc4p0001jlw5fn9w5ede" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/" class="article-date">
+  <time datetime="2016-11-23T16:00:00.000Z" itemprop="datePublished">2016-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/">双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在参考了网上现有的一些双系统教程后，我发现适合现在大多数新电脑的UEFI主板的双系统安装教程好像并不是很多，而且有的步骤写的对于新手小白来说不够友好，所以综合了一些现有的教程并将细节补充了一下，写下这篇文档，给需要在新电脑安装Ubuntu双系统的朋友</p>
+<p>由于我平时大部分时间的需求还是要在win上完成，因此我希望双系统的效果是按下开机键后会默认直接开启win10，如果需要ubuntu的话在再开机键按下后马上按快速启动键（就是选择启动方式的键，每个品牌电脑不一样，我的是F12）自己切换到ubuntu，而不是每次开机都需要在界面中选择系统，我觉得这样平时的时候用win10比较快</p>
+<p>好了，那就开始吧</p>
+<hr>
+<h1 id="1-给ubuntu划出大约50G大小的硬盘分区"><a href="#1-给ubuntu划出大约50G大小的硬盘分区" class="headerlink" title="1.给ubuntu划出大约50G大小的硬盘分区"></a>1.给ubuntu划出大约50G大小的硬盘分区</h1><p>右键“我的电脑”—&gt;“管理”—&gt;“磁盘管理”，选择一个有足够空间的磁盘，右键“压缩卷”，划分出大约50G大小的分区出来给新系统（推荐不低于20G）</p>
+<h1 id="2-下载ubuntu系统镜像，制作U盘启动盘"><a href="#2-下载ubuntu系统镜像，制作U盘启动盘" class="headerlink" title="2.下载ubuntu系统镜像，制作U盘启动盘"></a>2.下载ubuntu系统镜像，制作U盘启动盘</h1><p><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">ubuntu官网下载链接(现已更新至16.04)</a></p>
+<p>下载好了用UltraISO把镜像文件刻录到U盘中，启动盘就完成了</p>
+<p>（U盘启动盘的更多详细步骤）: <a href="http://jingyan.baidu.com/article/a378c960630e61b329283045.html" target="_blank" rel="noopener">使用UltraISO制作U盘启动盘</a></p>
+<h1 id="3-关闭win10的快速启动"><a href="#3-关闭win10的快速启动" class="headerlink" title="3.关闭win10的快速启动"></a>3.关闭win10的快速启动</h1><p>点开控制面板，在电源选项中将快速启动前面的勾取消掉</p>
+<h1 id="4-重启，从U盘启动"><a href="#4-重启，从U盘启动" class="headerlink" title="4.重启，从U盘启动"></a>4.重启，从U盘启动</h1><p>电脑重启后一瞬间快速按下快速启动键（可以查询自己的电脑的按键情况<a href="http://jingyan.baidu.com/article/a378c9609ace4eb328283005.html" target="_blank" rel="noopener">各主板启动快捷键</a>）</p>
+<p>在bios选项中可以看到自己U盘，光标切换到U盘，按下enter就可以了</p>
+<h1 id="5-进入ubuntu安装界面后"><a href="#5-进入ubuntu安装界面后" class="headerlink" title="5.进入ubuntu安装界面后"></a>5.进入ubuntu安装界面后</h1><ul>
+<li><p>点击“安装Ubuntu”</p>
+</li>
+<li><p>点击“继续”</p>
+</li>
+<li><p>选择“其他安装”</p>
+</li>
+<li><p>进入分区界面，也是安装步骤的重点</p>
+<ol>
+<li>找到标注有“空闲”的盘符，选中它，看到下面有一个加号“+”，点击后出现一个“创建分区”窗口，依次填入8192MB(其实是自己电脑内存大小的2倍左右)，选择“主分区”，选择“空间起始位置”，选择“swap交换空间”，然后点击确定（swap交换空间）</li>
+<li>还是这个空闲盘符，点击加号后，选择下面的“efi系统分区”（这就是不同于老式bios的引导模式，不要选错了），大小为200MB（100~300MB都可以），选择“逻辑分区”，选择“空间起始位置”，然后确定（efi引导分区）</li>
+<li>划分大约20G，“逻辑分区”，“空间起始位置”，挂载在“/”目录下，类型为Ext4日志文件系统，确定（系统分区）</li>
+<li>剩下所有的空间都划分出来，“逻辑空间”，“空间起始位置”，挂载在“/home”目录下，类型为Ext4日志文件系统，确定（home分区），分区步骤就完成了</li>
+</ol>
+</li>
+<li><p>然后又是最关键的一个地方，那就是最下面的“安装启动引导器的设备”，既然我们刚刚已经为Ubuntu分配了efi系统引导分区，那么显然，这里应该把它改成你刚刚分配efi系统引导分区的那个分区</p>
+</li>
+<li><p>接下来的步骤就是一路默认，选择时区什么的自定义了，会需要等待一段格式化、写入文件的时间，耐心等待，完成后电脑会重启，这个时候如果离开了电脑，会发现重启完成进入了win10系统，怎么办呢，我们就手动重启下，启动的瞬间按下 快速启动键 然后选择bios里的ubuntu，按下enter进入系统，这时又会看到一个紫色界面的grub管理界面，继续选择ubuntu，enter进入，最后就可以进入到安装完成的ubuntu系统了，以后其实也是这么进入的，虽然稍显麻烦，不过平时的win10就快了嘛，不是吗</p>
+</li>
+</ul>
+<p>我的方法是不借用其他第三方软件支持，纯净安装Ubuntu和Windows双系统，要删除Ubuntu的话只要重新将分出的50G分区格式化，也可以重新归为win10的分区格式，简单方便</p>
+<h1 id="6-后记"><a href="#6-后记" class="headerlink" title="6.后记"></a>6.后记</h1><ol>
+<li>第一阶段：后来在实验室电脑中需要使用Ubuntu比较多，于是发现如果在bios中设置Ubuntu为开机第一选项，就可以进入紫色的系统选择界面，2个系统都可以进入（原先我以为win不能被引导），所以有段时间我是使用这种Ubuntu引导界面来开机的。不过有两个缺点，1，如果win更新重启就会在默认情况下进入Ubuntu无法完成无人下的更新，2，两个系统必须都在一个硬盘内</li>
+<li>第二阶段：鉴于实在需要大一点的空间，所以后来还是在机械硬盘上安装了Ubuntu，不过代价就是需要将bios改为legacy并且切换系统时需要进bios切换启动顺序，不过总的来说还不算太麻烦，于是就成为现在的成熟方案了</li>
+</ol>
+<h1 id="参考文档资料"><a href="#参考文档资料" class="headerlink" title="参考文档资料:"></a>参考文档资料:</h1><p><a href="http://blog.csdn.net/songkai320/article/details/51865282" target="_blank" rel="noopener">UEFI启动的windows下安装Ubuntu双系统（绝对可行）</a></p>
+<p><a href="http://jingyan.baidu.com/article/60ccbceb18624464cab197ea.html" target="_blank" rel="noopener">win7+ubuntu 13.04双系统安装方法</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/" data-id="cjzh1lc4t0002jlw533gpw6hx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hexo + Github搭建个人博客教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/23/Hexo + Github搭建个人博客教程/" class="article-date">
+  <time datetime="2016-11-22T16:00:00.000Z" itemprop="datePublished">2016-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/23/Hexo + Github搭建个人博客教程/">Hexo + Github搭建个人博客教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>想搭建一个个人博客，但是不舍得花钱买服务器，听说github可以有免费的搭建博客的方法，看到有各种教程关于hexo、jelly和wordpress框架的，我自己选择了hexo，一路走下来感觉有很多坑（当然是对我这样一个连github都还不熟悉的新手来说），于是把走过的坑整理了一下，方便以后再来一次，也方便后来的人</p>
+<p>所以，这样搭建博客好处是什么”)所以，这样搭建博客好处是什么</p>
+<p>关于github：</p>
+<ul>
+<li>github pages是用来托管 github 上静态网页的免费站点，有足够的免费空间（1G），资料自己管理，保存可靠；</li>
+<li>享受github 的便利，上面有很多大牛，眼界会开阔很多；</li>
+<li>可以使用很多现成的博客框架，搭建过程简单快速；</li>
+</ul>
+<p>关于hexo：</p>
+<ul>
+<li>Hexo 是一个简单、快速、强大的静态博客框架,出自台湾大学生 tommy351 之手；</li>
+<li>极速生成静态页面；</li>
+<li>一键部署博客；</li>
+<li>丰富的插件支持；</li>
+<li>支持 Markdown</li>
+</ul>
+<hr>
+<p>那么我们开始吧</p>
+<h1 id="首先我们需要一个github账号"><a href="#首先我们需要一个github账号" class="headerlink" title="首先我们需要一个github账号"></a>首先我们需要一个github账号</h1><p>去<a href="https://github.com/" target="_blank" rel="noopener">github</a>官网注册一个账号</p>
+<p>有了账号，我们新建一个仓库repository，注意，我们的repository命名时需要用自己刚才注册github账号的用户名ID，后面加上“.github.io”（这也意味着一个账号只能搭建一个博客，目前我认为是这样。。。）</p>
+<h1 id="然后我们需要一些配置"><a href="#然后我们需要一些配置" class="headerlink" title="然后我们需要一些配置"></a>然后我们需要一些配置</h1><p>git下载和配置</p>
+<ul>
+<li>需要先下载git插件，并进行配置<a href="https://git-scm.com/download" target="_blank" rel="noopener">git官网</a></li>
+<li>接下来就是git配置内容，这里推荐一片配置git下载安装和配置的博文<a href="http://blog.csdn.net/renfufei/article/details/41647875" target="_blank" rel="noopener">git下载配置博文</a></li>
+</ul>
+<p>hexo配置</p>
+<ul>
+<li><p>我们需要在如下地址下载最新版<a href="http://nodejs.cn/" target="_blank" rel="noopener">node.js</a></p>
+</li>
+<li><p>下载好可以开始安装了</p>
+</li>
+<li><p>鼠标右键任意地方，选择Git Bash</p>
+</li>
+<li><p>使用以下命令安装hexo(ps：以下命令中的”$“符号只为了让教程和实际看起来一致，实际输入命令只需输入”$“后面的命令即可)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果之后在使用的过程中，遇到以下的错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found : github</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>则运行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>接下来创建放置博客文件的文件夹：hexo文件夹。在自己想要的位置创建文件夹，如我hexo文件夹的位置为E:\hexo，名字和地方可以自由选择，当然最好不要放在中文路径下，至于原因，我想很多人懂得。之后进入文件夹，即E:\hexo内，点击鼠标右键，选择Git Bash，执行以下命令，Hexo会自动在该文件夹下下载搭建网站所需的所有文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>让我们看看刚刚下载的hexo文件带来了什么，在E:\hexo内执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后用浏览器访问<a href="http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape" target="_blank" rel="noopener">http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape</a></p>
+</li>
+</ul>
+<h1 id="接下来-部署本地文件到github"><a href="#接下来-部署本地文件到github" class="headerlink" title="接下来 部署本地文件到github"></a>接下来 部署本地文件到github</h1><ul>
+<li><p>既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。</p>
+</li>
+<li><p>在_config.yml最下方，添加如下配置(命令中的第一个huangjunhui为Github的用户名,第二个huangjunhui为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的)</p>
+</li>
+<li><p>配置好_config.yml并保存后，执行以下命令部署到Github上。如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下，具体方法史上最全github使用方法：github入门到精通里面有介绍到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行上面的第二个命令，可能会要你输入用户名和密码，皆为注册Github时的数据，输入密码是不显示任何东西的，输入完毕回车即可</p>
+</li>
+<li><p>此时，我们的博客已经搭建起来，并发布到Github上了，在浏览器访问huangjunhui.github.io就能看到自己的博客了。第一次访问刚地址，可能访问不了，您可以在几分钟后进行访问，一般不超过10分钟</p>
+</li>
+</ul>
+<h1 id="那么我们怎么写博客呢"><a href="#那么我们怎么写博客呢" class="headerlink" title="那么我们怎么写博客呢"></a>那么我们怎么写博客呢</h1><p>在hexo上使用markdown（一种标记语言，十分简单易学<a href="http://sspai.com/25137" target="_blank" rel="noopener">markdown教程链接</a>）</p>
+<h1 id="写完了怎么发布"><a href="#写完了怎么发布" class="headerlink" title="写完了怎么发布"></a>写完了怎么发布</h1><p>写完文章后，你可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>在本地预览效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>同步到github，然后浏览器输入<a href="http://xn--6qqv7i14ofosyrb.github.xn--io-3e9fw1jisgwqk/" target="_blank" rel="noopener">http://你的用户名.github.io</a>进行访问</p>
+<h1 id="如何换主题"><a href="#如何换主题" class="headerlink" title="如何换主题"></a>如何换主题</h1><ul>
+<li><p>如果觉得hexo自带的样式不好的话，可以在<a href="https://github.com/search?utf8=%E2%9C%93&q=hexo" target="_blank" rel="noopener">github</a>下搜索自己感兴趣的主题，需要先</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &quot;github上对应的网址&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置样式的内容同样是在样式目录下的全局配置文件中更改 _config.yml.根据样式提示更改</p>
+</li>
+<li><p>对样式进行覆盖并部署到github上。需要在当前博客目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="参考文档资料："><a href="#参考文档资料：" class="headerlink" title="参考文档资料："></a>参考文档资料：</h1><p><a href="http://blog.csdn.net/qq_15807167/article/details/51601234" target="_blank" rel="noopener">hexo在github上搭建个人博客详细步骤</a></p>
+<p><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">HEXO+Github,搭建属于自己的博客</a></p>
+<p><a href="http://blog.csdn.net/u012246342/article/details/51543370" target="_blank" rel="noopener">hexo安装成功，并且正确运行，但是localhost:4000不能访问</a></p>
+<p><a href="http://www.360doc.com/content/13/1030/07/3300331_325214833.shtml" target="_blank" rel="noopener">史上最全github使用方法:github入门到精通</a></p>
+<p><a href="http://sspai.com/25137" target="_blank" rel="noopener">认识与入门 Markdown</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/23/Hexo + Github搭建个人博客教程/" data-id="cjzh1lc4g0000jlw5xppxzm4x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/25/调试django的方法/">调试django的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/24/django的ORM实践/">django的ORM实践</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/">js技巧总结——ajax，innerhtml， 动态表单</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/django实现上传文件的页面/">django实现上传文件的页面</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/28/从excel到mysql数据库，数据映射技巧总结/">从excel到mysql数据库，数据映射技巧总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

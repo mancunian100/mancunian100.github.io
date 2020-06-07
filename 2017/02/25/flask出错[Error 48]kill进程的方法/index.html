@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2016 | Hexo</title>
+  <title>flask出错[Error 48]kill进程的方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="碰到了flask错误socket.error: [Errno 48] Address already in use各种重新安装flask都无效，然后找到了kill进程的方法 1sudo lsof -i:5000  （5000是指之前使用的端口） 1kill aaaa  （aaaa是指上面出现的PID代号）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flask出错[Error 48]kill进程的方法">
+<meta property="og:url" content="http://yoursite.com/2017/02/25/flask出错[Error 48]kill进程的方法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="碰到了flask错误socket.error: [Errno 48] Address already in use各种重新安装flask都无效，然后找到了kill进程的方法 1sudo lsof -i:5000  （5000是指之前使用的端口） 1kill aaaa  （aaaa是指上面出现的PID代号）">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-18T14:18:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="flask出错[Error 48]kill进程的方法">
+<meta name="twitter:description" content="碰到了flask错误socket.error: [Errno 48] Address already in use各种重新安装flask都无效，然后找到了kill进程的方法 1sudo lsof -i:5000  （5000是指之前使用的端口） 1kill aaaa  （aaaa是指上面出现的PID代号）">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,78 +64,67 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/25/OpenVPN服务器搭建教程/" class="archive-article-date">
-  <time datetime="2016-11-24T16:00:00.000Z" itemprop="datePublished">Nov 25</time>
+        <section id="main"><article id="post-flask出错[Error 48]kill进程的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/25/flask出错[Error 48]kill进程的方法/" class="article-date">
+  <time datetime="2017-02-24T16:00:00.000Z" itemprop="datePublished">2017-02-25</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/25/OpenVPN服务器搭建教程/">OpenVPN服务器搭建教程</a>
+    <h1 class="article-title" itemprop="name">
+      flask出错[Error 48]kill进程的方法
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/" class="archive-article-date">
-  <time datetime="2016-11-23T16:00:00.000Z" itemprop="datePublished">Nov 24</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/24/双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）/">双系统安装之Ubuntu 16.04 LTS和Windows 10（UEFI模式）</a>
-    </h1>
-  
+        <p>碰到了flask错误socket.error: [Errno 48] Address already in use各种重新安装flask都无效，然后找到了kill进程的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i:5000</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/23/Hexo + Github搭建个人博客教程/" class="archive-article-date">
-  <time datetime="2016-11-22T16:00:00.000Z" itemprop="datePublished">Nov 23</time>
-</a>
+<p>（5000是指之前使用的端口）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill aaaa</span><br></pre></td></tr></table></figure>
+
+<p>（aaaa是指上面出现的PID代号）</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/23/Hexo + Github搭建个人博客教程/">Hexo + Github搭建个人博客教程</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/25/flask出错[Error 48]kill进程的方法/" data-id="cjzh22py40003pzw56szf4duo" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/25/virtualenv独立使用不同版本python进行开发/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          virtualenv独立使用不同版本python进行开发
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/01/22/mac os下搭建hexo+github博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mac os下搭建hexo+github博客</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

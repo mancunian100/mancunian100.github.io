@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-调试django的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/25/调试django的方法/" class="article-date">
+  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/调试django的方法/">调试django的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>写完django的方法后需要调试，不知道怎么在python终端中直接运行脚本，因为不支持环境直接import其他的包，原来时要在一个特殊的debug环境中进行操作，参考<a href="https://djangotricks.blogspot.com/2016/05/debugging-management-commands-in-pycharm.html" target="_blank" rel="noopener">https://djangotricks.blogspot.com/2016/05/debugging-management-commands-in-pycharm.html</a></p>
+<hr>
+<ul>
+<li>需要在magement下的command文件夹下使用专门的debug程序进行，然后操作的时候需要在项目根目录下使用manage.py进行操作，这样就可以使用django的环境，不必处理各种无法import的问题了</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/25/调试django的方法/" data-id="cjzh2iv8x001hpzw5gzpybml4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-django的ORM实践" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/24/django的ORM实践/" class="article-date">
+  <time datetime="2019-07-23T16:00:00.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/24/django的ORM实践/">django的ORM实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>使用django的orm操作数据库，比起mysql要更加成熟，因为封装了很多方法，不需要自己用sql语句进行底层的操作，也相对安全，后续维护也更方便</p>
+<p>主要用到的操作有增，删，查，参考<a href="https://blog.csdn.net/scrat_kong/article/details/81604106" target="_blank" rel="noopener">https://blog.csdn.net/scrat_kong/article/details/81604106</a></p>
+<hr>
+<ul>
+<li><p>增加create，通过模型类.objects.create()保存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;&gt;&gt; HeroInfo.objects.create(</span><br><span class="line">    hname=&apos;xxx&apos;,</span><br><span class="line">    hgender=0,</span><br><span class="line">    hbook=book</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除有两种方法</p>
+</li>
+</ul>
+<p>1）模型类对象delete</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hero = HeroInfo.objects.get(id=13)</span><br><span class="line">hero.delete()</span><br></pre></td></tr></table></figure>
+
+<p>2）模型类.objects.filter().delete()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HeroInfo.objects.filter(id=14).delete()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>过滤查询，主要用到filter 过滤出多个结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BookInfo.objects.filter(id__exact=1)</span><br><span class="line">可简写为：</span><br><span class="line">BookInfo.objects.filter(id=1)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/24/django的ORM实践/" data-id="cjzh2i7cx001fpzw5my2y3v3w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js技巧总结——ajax，innerhtml， 动态表单" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/" class="article-date">
+  <time datetime="2019-07-15T16:00:00.000Z" itemprop="datePublished">2019-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/">js技巧总结——ajax，innerhtml， 动态表单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>在写前端的动态表单时有许多需要实现的功功能需求，需要使用js的一些其他组件和技巧，比如ajax和innerhtml，需要用到事件监听等等，最后遇到的最难的问题应该是如何选择boostrap中的动态selection数据进行提交</p>
+<hr>
+<ul>
+<li><p>在点击add按钮后触发添加标签选项的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// target</span><br><span class="line">$(&apos;.add-one&apos;).click(function()&#123;</span><br><span class="line">    $(&apos;.dynamic-target&apos;).first().clone().appendTo(&apos;.dynamic-target-stuff&apos;).show();</span><br><span class="line">    attach_delete();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">function attach_delete()&#123;</span><br><span class="line">$(&apos;.delete&apos;).off();</span><br><span class="line">    $(&apos;.delete&apos;).click(function()&#123;</span><br><span class="line">        console.log(&quot;click&quot;);</span><br><span class="line">        $(this).closest(&apos;.form-group&apos;).remove();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在选择了相对应的游戏后，使用ajax动态获取后端接口返回来的游戏数据，将其作为动态表单的数据选项呈现在用户界面上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// dynamic game selection in the form</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &quot;/simulation/getGameList&quot;,</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function(data) &#123;</span><br><span class="line">        // add the game selection from db</span><br><span class="line">        for (var i = 0; i &lt; data.length; i += 1) &#123;</span><br><span class="line">            $(&apos;.selectpicker&apos;).append(&quot;&lt;option value=&quot; + data[i].id + &quot;&gt;&quot;  + data[i].name + &quot;&lt;/option&gt;&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">        // $(&apos;#name&apos;).selectpicker(&apos;refresh&apos;);</span><br><span class="line">        // $(&apos;#name&apos;).selectpicker(&apos;render&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当游戏发生改变时，需要使用innerhtml对动态表单中的列表选项进行修改，参考<a href="https://www.runoob.com/jsref/prop-html-innerhtml.html" target="_blank" rel="noopener">https://www.runoob.com/jsref/prop-html-innerhtml.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// change the game, change the game_id, game_entities</span><br><span class="line">function changeGame(sel) &#123;</span><br><span class="line">    document.getElementById(&quot;target_item&quot;).innerHTML=&quot;&quot;;</span><br><span class="line">    document.getElementById(&quot;resource_item&quot;).innerHTML=&quot;&quot;;</span><br><span class="line">    game_id = sel.value;</span><br><span class="line">    // reset the submit_data and game_entities</span><br><span class="line">    submit_data = &#123;&#125;;</span><br><span class="line">    game_entities = &#123;&#125;;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: &quot;/simulation/getGameAllEntity?&quot; + game_id,</span><br><span class="line">        dataType: &quot;json&quot;,</span><br><span class="line">        success: function(data) &#123;</span><br><span class="line">            for (var i = 0; i &lt; data.length; i += 1) &#123;</span><br><span class="line">                game_entities[data[i][&quot;id&quot;]] = data[i][&quot;name&quot;];</span><br><span class="line">            &#125;</span><br><span class="line">            // console.log(game_entities);</span><br><span class="line">            for (var id in game_entities) &#123;</span><br><span class="line">                $(&apos;.form_target&apos;).append(&quot;&lt;option value=&quot; + id + &quot;&gt;&quot; + game_entities[id] + &quot;&lt;/option&gt;&quot;)</span><br><span class="line">                $(&apos;.form_resource&apos;).append(&quot;&lt;option value=&quot; + id + &quot;&gt;&quot; + game_entities[id] + &quot;&lt;/option&gt;&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后要对已经选中的数据进行提交，这里走了很多弯路，先后参考了几篇博客<br><a href="https://zhidao.baidu.com/question/548129683.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/548129683.html</a><br><a href="https://blog.csdn.net/qq_35494342/article/details/80002552" target="_blank" rel="noopener">https://blog.csdn.net/qq_35494342/article/details/80002552</a><br><a href="https://blog.zfanw.com/jquery-dynamic-insert-element-bind-event/" target="_blank" rel="noopener">https://blog.zfanw.com/jquery-dynamic-insert-element-bind-event/</a><br>但是效果均都不是我所需要的对相应boostrap的表单选中数据并提交，最后发现其实只需要对相应的div标签中的父class进行选择，就可以做到选中数据了，其中用到了&gt;选择符，和each方法迭代，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// collect dynamic target</span><br><span class="line">submit_data[&quot;target_id&quot;] = [];</span><br><span class="line">$(&quot;#target_selection:visible &gt; option:selected&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;target_id&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line">submit_data[&quot;target_num&quot;] = [];</span><br><span class="line">$(&quot;.dynamic-target input:visible&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;target_num&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// collect dynamic resource</span><br><span class="line">submit_data[&quot;resource_id&quot;] = [];</span><br><span class="line">$(&quot;#resource_selection:visible &gt; option:selected&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;resource_id&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line">submit_data[&quot;resource_num&quot;] = [];</span><br><span class="line">$(&quot;.dynamic-resource input:visible&quot;).each(function() &#123;</span><br><span class="line">    // console.log($(this).val());</span><br><span class="line">    submit_data[&quot;resource_num&quot;].push($(this).val());</span><br><span class="line">&#125;);</span><br><span class="line">// console.log(submit_data);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/" data-id="cjzh2hejp001dpzw5cd9a9a6r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-django实现上传文件的页面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/08/django实现上传文件的页面/" class="article-date">
+  <time datetime="2019-07-07T16:00:00.000Z" itemprop="datePublished">2019-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/08/django实现上传文件的页面/">django实现上传文件的页面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>利用Django实现一个简单的文件上传功能</p>
+<p>参考<a href="https://blog.csdn.net/a18852867035/article/details/66976028" target="_blank" rel="noopener">django实战（三）实现简单的文件上传功能</a></p>
+<hr>
+<ul>
+<li><p>在django的views.py文件中读取前端传来的文件，并保存到服务器端，参考<a href="https://jingyan.baidu.com/article/425e69e60d978dbe15fc16b0.html" target="_blank" rel="noopener">django怎样保存上传的文件</a><br>，并调用接口更新到数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">from django.http import HttpResponse</span><br><span class="line">from blog.models import *</span><br><span class="line"></span><br><span class="line"># Create your views here.</span><br><span class="line">class NormalUserForm(forms.Form):</span><br><span class="line">    #form的定义和model类的定义很像</span><br><span class="line">    username=forms.CharField()</span><br><span class="line">    headImg=forms.FileField()</span><br><span class="line">#在View中使用已定义的Form方法</span><br><span class="line">def registerNormalUser(request):</span><br><span class="line">    #刚显示时调用GET方法</span><br><span class="line">    if request.method==&quot;POST&quot;:</span><br><span class="line">        uf = NormalUserForm(request.POST,request.FILES)#刚显示时，实例化表单（是否有数据）</span><br><span class="line">        if uf.is_valid():#验证数据是否合法，当合法时可以使用cleaned_data属性。</span><br><span class="line">            #用来得到经过&apos;clean&apos;格式化的数据，会所提交过来的数据转化成合适的Python的类型。</span><br><span class="line">            username = uf.cleaned_data[&apos;username&apos;]</span><br><span class="line">            headImg = uf.cleaned_data[&apos;headImg&apos;]</span><br><span class="line">            #write in database</span><br><span class="line">            normalUser=NormalUser()#实例化NormalUser对象</span><br><span class="line">            normalUser.username = username</span><br><span class="line">            normalUser.headImg = headImg</span><br><span class="line">            normalUser.save()#保存到数据库表中</span><br><span class="line">            return HttpResponse(&apos;Upload Succeed!&apos;)#重定向显示内容（跳转后内容）</span><br><span class="line">    else:</span><br><span class="line">        uf=NormalUserForm()#刚显示时，实例化空表单</span><br><span class="line">    return render(request,&apos;register.html&apos;,&#123;&apos;uf&apos;:uf&#125;)#只有刚显示时才起作用</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后配置urls.py文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from django.conf.urls import url</span><br><span class="line">from django.contrib import admin</span><br><span class="line">from blog.views import *</span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</span><br><span class="line">    url(r&apos;^register/$&apos;,registerNormalUser),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/08/django实现上传文件的页面/" data-id="cjzh2gtpf001bpzw5292i6h0i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-从excel到mysql数据库，数据映射技巧总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/28/从excel到mysql数据库，数据映射技巧总结/" class="article-date">
+  <time datetime="2019-06-27T16:00:00.000Z" itemprop="datePublished">2019-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/28/从excel到mysql数据库，数据映射技巧总结/">从excel到mysql数据库，数据映射技巧总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>读取excel这种格式的数据遇到了很多问题和麻烦，总结的技巧如下</p>
+<hr>
+<ul>
+<li>技巧总结：</li>
+</ul>
+<ol>
+<li><p>在处理空值和0时，可以一起处理，读出字符串，判断长度是否大于1（默认非0值的字符串长度都大于1）</p>
+</li>
+<li><p>在处理使用＊作为分割符号时，可以用split方法取出字符串数组，若数组长度为2就说明有分割，若为1则默认数量为1</p>
+</li>
+<li><p>面对合并单元格的excel数据，需要对这种情况进行特殊处理，根据excel的行号特点可以使用如下方法：<br>在某一列可能出现合并单元格时，由于excel在行号处理时仍然会将这一行在数值上分隔开，所以可以先使用一个临时变量记录上一行的值，若下一行值为空，则仍使用临时变量中存储的值，直到下一次遇到非空的行</p>
+</li>
+<li><p>由于qualification这一列数据的特殊性，需要分三种情况讨论数据的分类，分别是数据属于cost，属于status，属于trade，分别在三张表中进行查询，获取对应id后再写入</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/28/从excel到mysql数据库，数据映射技巧总结/" data-id="cjzh2g8fr0018pzw5feydaanf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-一个不错的bootstrap动态表单模板" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/一个不错的bootstrap动态表单模板/" class="article-date">
+  <time datetime="2019-06-25T16:00:00.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/一个不错的bootstrap动态表单模板/">一个不错的bootstrap动态表单模板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>需要使用动态表单，在谷歌上搜到一个很适合需求的模板，以下是截图和链接</p>
+<hr>
+<ul>
+<li>效果图<br><img src="https://upload-images.jianshu.io/upload_images/3635482-d28792d91c467a6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ul>
+<ul>
+<li><p>链接<a href="https://codepen.io/felipeumanzor/pen/BZjXPq" title="Really Simple Bootstrap / Jquery Dynamic Form Fields" target="_blank" rel="noopener">Really Simple Bootstrap / Jquery Dynamic Form Fields</a></p>
+</li>
+<li><p>由于需要对表单动态添加数据标签，所以需要对表单中的option动态添加数据，参考<a href="https://blog.csdn.net/qq_35534449/article/details/79170634" target="_blank" rel="noopener">bootstrap-select 动态添加数据</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;  </span><br><span class="line">// get请求地址  </span><br><span class="line">    url: basePath,  </span><br><span class="line">    dataType: &quot;json&quot;,  </span><br><span class="line">    success: function (data) &#123;  </span><br><span class="line">    var optArr = [];  </span><br><span class="line">        for (var i = 0; i &lt; data.length; i++) &#123;  </span><br><span class="line">            $(&apos;.selectpicker&apos;).append(&quot;&lt;option value=&quot; + data[i].userName + &quot;&gt;&quot; + data[i].userName + &quot;&lt;/option&gt;&quot;);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">        // 缺一不可  </span><br><span class="line">        $(&apos;#name&apos;).selectpicker(&apos;refresh&apos;);  </span><br><span class="line">        $(&apos;#name&apos;).selectpicker(&apos;render&apos;);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/一个不错的bootstrap动态表单模板/" data-id="cjzh2dh2a000ypzw54zgb58lu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python的构造函数__new__（区别于__init__）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/python的构造函数__new__（区别于__init__）/" class="article-date">
+  <time datetime="2019-06-25T16:00:00.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/python的构造函数__new__（区别于__init__）/">python的构造函数__new__（区别于__init__）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>都以为Python中的<strong>init</strong>是构造方法，但其实不然，Python中真正的构造方法是<strong>new</strong>。<strong>init</strong>和<strong>new</strong>有什么区别<br>参考<a href="https://juejin.im/post/5add4446f265da0b8d4186af" target="_blank" rel="noopener">https://juejin.im/post/5add4446f265da0b8d4186af</a></p>
+<hr>
+<ul>
+<li><p>先来看一下<strong>init</strong>的用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Person(object):</span><br><span class="line">    def __init__(self, name, age):</span><br><span class="line">        print(&quot;in __init__&quot;)</span><br><span class="line">        self._name = name</span><br><span class="line">        self._age = age </span><br><span class="line"></span><br><span class="line">p = Person(&quot;Wang&quot;, 33)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实际上，<strong>init</strong>函数并不是真正意义上的构造函数，<strong>init</strong>方法做的事情是在对象创建好之后初始化变量。真正创建实例的是<strong>new</strong>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Person(object):</span><br><span class="line">    def __new__(cls, *args, **kwargs):</span><br><span class="line">        print(&quot;in __new__&quot;)</span><br><span class="line">        instance = object.__new__(cls, *args, **kwargs)</span><br><span class="line">        return instance</span><br><span class="line"></span><br><span class="line">    def __init__(self, name, age):</span><br><span class="line">        print(&quot;in __init__&quot;)</span><br><span class="line">        self._name = name</span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line">p = Person(&quot;Wang&quot;, 33)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面的代码中实例化了一个Person对象，可以看到<strong>new</strong>和<strong>init</strong>都被调用了。<strong>new</strong>方法用于创建对象并返回对象，当返回对象时会自动调用<strong>init</strong>方法进行初始化。<strong>new</strong>方法是静态方法，而<strong>init</strong>是实例方法</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/python的构造函数__new__（区别于__init__）/" data-id="cjzh2eohz0012pzw5wszagf9b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python的单元测试unittest" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/python的单元测试unittest/" class="article-date">
+  <time datetime="2019-06-25T16:00:00.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/python的单元测试unittest/">python的单元测试unittest</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>写完python的接口函数，想要和java那样写一个单元测试怎么做，java有专门的JUnit包，python也有对应的，叫unittest，参考链接</p>
+<hr>
+<ul>
+<li><a href="https://www.liaoxuefeng.com/wiki/897692888725344/953546675792640" target="_blank" rel="noopener">单元测试－廖雪峰</a><br>快速上手</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import unittest</span><br><span class="line"></span><br><span class="line">from mydict import Dict</span><br><span class="line"></span><br><span class="line">class TestDict(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">    def test_init(self):</span><br><span class="line">        d = Dict(a=1, b=&apos;test&apos;)</span><br><span class="line">        self.assertEquals(d.a, 1)</span><br><span class="line">        self.assertEquals(d.b, &apos;test&apos;)</span><br><span class="line">        self.assertTrue(isinstance(d, dict))</span><br><span class="line"></span><br><span class="line">    def test_key(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        d[&apos;key&apos;] = &apos;value&apos;</span><br><span class="line">        self.assertEquals(d.key, &apos;value&apos;)</span><br><span class="line"></span><br><span class="line">    def test_attr(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        d.key = &apos;value&apos;</span><br><span class="line">        self.assertTrue(&apos;key&apos; in d)</span><br><span class="line">        self.assertEquals(d[&apos;key&apos;], &apos;value&apos;)</span><br><span class="line"></span><br><span class="line">    def test_keyerror(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        with self.assertRaises(KeyError):</span><br><span class="line">            value = d[&apos;empty&apos;]</span><br><span class="line"></span><br><span class="line">    def test_attrerror(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        with self.assertRaises(AttributeError):</span><br><span class="line">            value = d.empty</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/python的单元测试unittest/" data-id="cjzh2f6sy0014pzw5uu7wqd6u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python中使用原生sql读写数据库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/python中使用原生sql读写数据库/" class="article-date">
+  <time datetime="2019-06-25T16:00:00.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/python中使用原生sql读写数据库/">python中使用原生sql读写数据库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>在python中使用原生sql语句操作mysql可以只用pymysql这个包，记住最后还要写一个commit()提交操作</p>
+<hr>
+<ul>
+<li><a href="https://www.liaoxuefeng.com/wiki/897692888725344/953546675792640" target="_blank" rel="noopener">单元测试－廖雪峰</a><br>快速上手</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import unittest</span><br><span class="line"></span><br><span class="line">from mydict import Dict</span><br><span class="line"></span><br><span class="line">class TestDict(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">    def test_init(self):</span><br><span class="line">        d = Dict(a=1, b=&apos;test&apos;)</span><br><span class="line">        self.assertEquals(d.a, 1)</span><br><span class="line">        self.assertEquals(d.b, &apos;test&apos;)</span><br><span class="line">        self.assertTrue(isinstance(d, dict))</span><br><span class="line"></span><br><span class="line">    def test_key(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        d[&apos;key&apos;] = &apos;value&apos;</span><br><span class="line">        self.assertEquals(d.key, &apos;value&apos;)</span><br><span class="line"></span><br><span class="line">    def test_attr(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        d.key = &apos;value&apos;</span><br><span class="line">        self.assertTrue(&apos;key&apos; in d)</span><br><span class="line">        self.assertEquals(d[&apos;key&apos;], &apos;value&apos;)</span><br><span class="line"></span><br><span class="line">    def test_keyerror(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        with self.assertRaises(KeyError):</span><br><span class="line">            value = d[&apos;empty&apos;]</span><br><span class="line"></span><br><span class="line">    def test_attrerror(self):</span><br><span class="line">        d = Dict()</span><br><span class="line">        with self.assertRaises(AttributeError):</span><br><span class="line">            value = d.empty</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/python中使用原生sql读写数据库/" data-id="cjzh2fqjx0016pzw5xezjgios" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python包读取excel" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/24/python包读取excel/" class="article-date">
+  <time datetime="2019-06-23T16:00:00.000Z" itemprop="datePublished">2019-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/24/python包读取excel/">python包读取excel</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>以前正好写过python读取excel的脚本，这里就直接用一样的xlrd包来实现</p>
+<hr>
+<ul>
+<li>参考xlrd文档<a href="https://github.com/python-excel/xlrd" target="_blank" rel="noopener">python-excel/xlrd</a></li>
+</ul>
+<ul>
+<li>快速上手<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import xlrd</span><br><span class="line">book = xlrd.open_workbook(&quot;myfile.xls&quot;)</span><br><span class="line">print(&quot;The number of worksheets is &#123;0&#125;&quot;.format(book.nsheets))</span><br><span class="line">print(&quot;Worksheet name(s): &#123;0&#125;&quot;.format(book.sheet_names()))</span><br><span class="line">sh = book.sheet_by_index(0)</span><br><span class="line">print(&quot;&#123;0&#125; &#123;1&#125; &#123;2&#125;&quot;.format(sh.name, sh.nrows, sh.ncols))</span><br><span class="line">print(&quot;Cell D30 is &#123;0&#125;&quot;.format(sh.cell_value(rowx=29, colx=3)))</span><br><span class="line">for rx in range(sh.nrows):</span><br><span class="line">    print(sh.row(rx))</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/24/python包读取excel/" data-id="cjzh2e3ct0010pzw5jljwr3mi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/25/调试django的方法/">调试django的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/24/django的ORM实践/">django的ORM实践</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/">js技巧总结——ajax，innerhtml， 动态表单</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/django实现上传文件的页面/">django实现上传文件的页面</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/28/从excel到mysql数据库，数据映射技巧总结/">从excel到mysql数据库，数据映射技巧总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>利用frp实现内网穿透 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一般人没有公网ip，想要远程ssh登录的话就需要内网穿透 现在一般的推荐的内网穿透软件似乎有ngrok和frp比较流行，而最近推荐frp的似乎多一些，毕竟更加开源，方便，可以在自己的服务器上部署  根据frp的官方文档使用教程如下：  首先在frp的github页面下载相对应的服务器版本以及客户端版本，并分别将文件复制到服务器、客户端上  服务器端的配置文件 123frps.ini[common">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用frp实现内网穿透">
+<meta property="og:url" content="http://yoursite.com/2018/02/04/利用frp实现内网穿透/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一般人没有公网ip，想要远程ssh登录的话就需要内网穿透 现在一般的推荐的内网穿透软件似乎有ngrok和frp比较流行，而最近推荐frp的似乎多一些，毕竟更加开源，方便，可以在自己的服务器上部署  根据frp的官方文档使用教程如下：  首先在frp的github页面下载相对应的服务器版本以及客户端版本，并分别将文件复制到服务器、客户端上  服务器端的配置文件 123frps.ini[common">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-18T14:22:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用frp实现内网穿透">
+<meta name="twitter:description" content="一般人没有公网ip，想要远程ssh登录的话就需要内网穿透 现在一般的推荐的内网穿透软件似乎有ngrok和frp比较流行，而最近推荐frp的似乎多一些，毕竟更加开源，方便，可以在自己的服务器上部署  根据frp的官方文档使用教程如下：  首先在frp的github页面下载相对应的服务器版本以及客户端版本，并分别将文件复制到服务器、客户端上  服务器端的配置文件 123frps.ini[common">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-利用frp实现内网穿透" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/04/利用frp实现内网穿透/" class="article-date">
+  <time datetime="2018-02-03T16:00:00.000Z" itemprop="datePublished">2018-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      利用frp实现内网穿透
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>一般人没有公网ip，想要远程ssh登录的话就需要内网穿透</p>
+<p>现在一般的推荐的内网穿透软件似乎有ngrok和frp比较流行，而最近推荐frp的似乎多一些，毕竟更加开源，方便，可以在自己的服务器上部署</p>
+<hr>
+<p>根据frp的<a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">官方文档</a>使用教程如下：</p>
+<ul>
+<li><p>首先在frp的<a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">github页面</a>下载相对应的服务器版本以及客户端版本，并分别将文件复制到服务器、客户端上</p>
+</li>
+<li><p>服务器端的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">frps.ini</span><br><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启服务端的程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改客户端的配置文件，‘x.x.x.x’处为自己的服务器公网ip地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># frpc.ini</span><br><span class="line">[common]</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line">.</span><br><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 6000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启客户端的程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c ./frpc.ini</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用ssh开始连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -oPort=6000 test@x.x.x.x</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/04/利用frp实现内网穿透/" data-id="cjzh289wv000ipzw5rb3folp0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/04/LaTex的常用格式整理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          LaTex的常用格式整理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/23/Andrew_Ng的机器学习课程笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Andrew_Ng的机器学习课程笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/25/调试django的方法/">调试django的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/24/django的ORM实践/">django的ORM实践</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/16/js技巧总结——ajax，innerhtml， 动态表单/">js技巧总结——ajax，innerhtml， 动态表单</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/django实现上传文件的页面/">django实现上传文件的页面</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/28/从excel到mysql数据库，数据映射技巧总结/">从excel到mysql数据库，数据映射技巧总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
